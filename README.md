@@ -1,2 +1,2 @@
-## Universidad Teconologica de Tijuana | Proyecto Integrador: SGIR | 3er semestre 
+## Universidad Teconologica de Tijuana | Proyecto Integrador: SGIR | 3er cuatrimestre 
 ### Sistema Gestor de Inventario, Costeo de Recetas y Abastecimiento para Restaurantes 
