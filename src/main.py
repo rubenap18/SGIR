@@ -10,6 +10,8 @@ for insumo in insumos:
     print(insumo.fecha_caducidad)
 
 '''
+'''
+
 
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
@@ -48,6 +50,20 @@ def main():
     view.resize(400, 200)
     view.show()
     sys.exit(app.exec())
+'''
+
+from daos.fake_insumo_dao import FakeInsumoDAO
+from services.inventario_servicio import InventarioServicio
+from controllers.inventario_controller import InventarioController
+
+def main():
+    dao_falso = FakeInsumoDAO()
+    inventario_service = InventarioServicio(insumo_dao=dao_falso)
+    inventario_controller = InventarioController(inventario_service=inventario_service)
+
+    print('Tomate Verde: ',inventario_service.evaluar_stock('Tomate Verde'))
 
 if __name__ == "__main__":
     main()
+
+
