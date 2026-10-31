@@ -375,6 +375,17 @@ class VistaRecetas(VistaBase):
             self.refrescar_pantalla()
             self.mostrar_opciones_editar_inst_prompt()
 
+    def mostrar_agregar_instruccion_prompt(self):
+        info = Prompt.ask("[bold yellow]Ingresa la instrucción[/bold yellow]")
+
+        if info is not None:
+            confirmacion = Prompt.ask("Confirmar agregar instrucción[/bold yellow]", choices=["S", "N"])
+            if confirmacion == "S":
+                return info
+            else:
+                return None
+
+
     def refrescar_pantalla(self):
         subprocess.run('cls' if os.name == 'nt' else 'clear')
         self.console.print(self.layout, justify="center")

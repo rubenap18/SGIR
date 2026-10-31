@@ -1,3 +1,4 @@
+import copy
 import time
 
 from rich.pretty import pprint
@@ -65,7 +66,7 @@ class ControladorRecetas:
             for receta in self.recetas_testeo:
                 if str(receta.num) == receta_num:
                     # La receta encontrada se convierte en la nueva receta actual
-                    self.receta_actual = receta
+                    self.receta_actual = copy.deepcopy(receta)
                     break
 
         self.mapear_ingredientes()
@@ -258,15 +259,15 @@ class ControladorRecetas:
             case "3":
                 opciones_idx = [str(ing) for ing in self.ing_idx]
                 num_ing = self.vista.mostrar_borrar_ingrediente_prompt(opciones_idx)
-
                 # debería validar aquí
                 if num_ing is not None:
                     # busca el nombre del ing basado en el num ingresado,
                     # luego busca el obj IngredientesReceta de la receta actual basado en el nombre
                     # y lo borra de la receta
                     nombre = self.ing_idx[int(num_ing)]
-                    self.receta_actual.ing_idx = [ing for ing in self.receta_actual.lista_ingredientes if not ing.ingrediente.nombre == nombre]
+                    self.receta_actual.lista_ingredientes = [ing for ing in self.receta_actual.lista_ingredientes if not ing.ingrediente.nombre == nombre]
                     self.formulario["item_borrado"] = True
+
                 self.mostrar_detalles_receta()
             case "4":
                 # volver a menu editar principal
@@ -277,7 +278,7 @@ class ControladorRecetas:
     def evaluar_seleccion_editar_inst(self, seleccion):
         match seleccion:
             case "1":
-                pass
+                instruccion = self.vista.mostrar_agregar_instruccion_prompt()
             case "2":
                 pass
             case "3":
