@@ -1,11 +1,12 @@
 #from models.Insumo import Insumo
 
 class Ingrediente:
-    def __init__(self, num, nombre, insumo=None):
+    def __init__(self, num, nombre, insumo=None, receta=None):
         self._num = num
         self._nombre = nombre
         #fk
         self._insumo = insumo
+        self._receta = receta
 
     @property
     def num(self):
@@ -30,6 +31,14 @@ class Ingrediente:
     @insumo.setter
     def insumo(self, value):
         self._insumo = value
+
+    @property
+    def receta(self):
+        return self._receta
+    
+    @receta.setter
+    def receta(self, value):
+        self._receta = value
 
 '''
 from Insumo import Insumo

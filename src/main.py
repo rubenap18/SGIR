@@ -54,12 +54,8 @@ def main():
     consola = Console()
     consola.size = (_width - 1, _height - 3)
 
-<<<<<<< HEAD
     vista_principal = VistaMenuPrincipal(consola)
     ControladorMenuPrincipal(vista=vista_principal)
-=======
-    print('Tomate Verde: ',inventario_service.evaluar_stock_insumo('Tomate Verde'))
->>>>>>> c150067 (Adding nada)
 
 if __name__ == "__main__":
     main()

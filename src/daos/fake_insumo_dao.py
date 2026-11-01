@@ -61,6 +61,8 @@ class FakeInsumoDAO:
 
     def actualizar_stock(self, insumo_actualizado):
         """Simula un UPDATE insumos SET stock = ? WHERE num = ?"""
+
+        #comprueba que el insumo exista en la BD simulada
         if insumo_actualizado.num in self._tabla_insumos:
             self._tabla_insumos[insumo_actualizado.num] = insumo_actualizado
             print(f"[BD SIMULADA] Stock de {insumo_actualizado.nombre} actualizado a {insumo_actualizado.stock}")

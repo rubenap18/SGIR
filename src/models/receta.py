@@ -64,7 +64,6 @@ class IngredientesReceta:
         self._cantidad = cantidad
         self._unidad_medida = unidad_medida
 
-
     @property
     def ingrediente(self):
         return self._ingrediente
