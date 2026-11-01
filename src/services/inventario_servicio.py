@@ -38,7 +38,7 @@ class InventarioServicio:
         stock_actualizado = insumo.stock + cantidad
         self._insumo_dao.actualizar_stock(num_insumo,stock_actualizado) 
 
-    def usar_insumo(self, num_insumo:int, cantidad:int):
+    def _usar_insumo(self, num_insumo:int, cantidad:int):
         ''' en este caso se descuenta la cantidad de stock al insumo especificado.
             En general, los insumos usan como unidades de medida standard el KG.
         '''
@@ -63,9 +63,25 @@ class InventarioServicio:
         2. Perdir al Dao los insumos de los ingredientes
         3. Descontar a cada insumo la cantidad utilizada para la receta
         '''
-        receta:Receta = self._receta_dao.bucar_por_id(numero_receta)
-        for ingrediente in receta.lista_ingredientes:
-            print(ingrediente.nombre)
+        receta:Receta = self._receta_dao.buscar_por_id(numero_receta)
+        '''
+        Por cada Ingrediente_Receta de la lista_ingredientes de la receta, 
+        se descuenta la cantidad de ese ingrediente que se usa en la receta, 
+        el cual tiene relacionado al insumo. 
+        Es decir, se descuenta del Insumo, no del Ingrediente.
+        '''
+        for ingrediente_receta in receta.lista_ingredientes:
+            cantidad_a_usar = ingrediente_receta.cantidad
+            self._usar_insumo(num_insumo=ingrediente_receta.ingrediente.insumo.num, cantidad=cantidad_a_usar)
 
     def get_insumo(self, num_insumo:int):
         return self._insumo_dao.buscar_por_id(num_insumo)
+
+    def get_receta(self, num_receta:int):
+        return self._receta_dao.buscar_por_id(num_receta)
+
+    def get_ingrediente(self, num_ingrediente:int):
+        return self._receta_dao.buscar_ingrediente_por_id(num_ingrediente)
+
+    def get_todos_los_insumos(self):
+        return self._insumo_dao.obtener_todos()
