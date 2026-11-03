@@ -1,7 +1,12 @@
+from __future__ import annotations  # Para resolver referencias circulares
+from typing import TYPE_CHECKING
 from typing import Optional
 #model imports
 from models.insumo import Insumo
-from models.receta import Receta
+
+if TYPE_CHECKING:
+    from models.receta import Receta
+
 
 class Ingrediente:
 <<<<<<< HEAD
@@ -10,7 +15,7 @@ class Ingrediente:
     def __init__(self,
                 num:int,
                 nombre:str,
-                insumo: Optional[Insumo] = None,
+                insumo: Insumo,
                 receta: Optional[Receta] = None
                 ):
 >>>>>>> main
@@ -21,7 +26,7 @@ class Ingrediente:
         self._receta = receta
 
     @property
-    def num(self):
+    def num(self) -> int:
         return self._num
 
     @num.setter
@@ -29,7 +34,7 @@ class Ingrediente:
         self._num = value
 
     @property
-    def nombre(self):
+    def nombre(self) -> str:
         return self._nombre
 
     @nombre.setter
@@ -37,7 +42,7 @@ class Ingrediente:
         self._nombre = value
 
     @property
-    def insumo(self):
+    def insumo(self) -> Insumo:
         return self._insumo
 
     @insumo.setter
@@ -45,7 +50,7 @@ class Ingrediente:
         self._insumo = value
 
     @property
-    def receta(self):
+    def receta(self) -> Receta|None:
         return self._receta
 <<<<<<< HEAD
     
