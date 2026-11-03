@@ -1,7 +1,19 @@
-#from models.Insumo import Insumo
+from typing import Optional
+#model imports
+from models.insumo import Insumo
+from models.receta import Receta
 
 class Ingrediente:
+<<<<<<< HEAD
     def __init__(self, num, nombre, insumo=None, receta=None):
+=======
+    def __init__(self,
+                num:int,
+                nombre:str,
+                insumo: Optional[Insumo] = None,
+                receta: Optional[Receta] = None
+                ):
+>>>>>>> main
         self._num = num
         self._nombre = nombre
         #fk
@@ -35,7 +47,11 @@ class Ingrediente:
     @property
     def receta(self):
         return self._receta
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> main
     @receta.setter
     def receta(self, value):
         self._receta = value

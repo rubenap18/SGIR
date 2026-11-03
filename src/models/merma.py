@@ -1,5 +1,20 @@
+from typing import Optional
+from datetime import datetime
+
+#model imports
+from models.insumo import Insumo
+from models.tipo_merma import TipoMerma
+
 class Merma:
-    def __init__(self, num, descripcion, fecha, unidad_medida, cantidad, insumo, tipo_merma):
+    def __init__(self, 
+                num:int,
+                descripcion:str,
+                fecha: Optional[str|datetime],
+                unidad_medida:str,
+                cantidad:float,
+                insumo:Insumo,
+                tipo_merma:TipoMerma
+                ):
         self._num = num
         self._fecha = fecha
         self._descripcion = descripcion
