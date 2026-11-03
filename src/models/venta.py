@@ -1,8 +1,11 @@
-from typing import List, Optional
+from __future__ import annotations  # Para resolver referencias circulares
+from typing import List, Optional, TYPE_CHECKING
 from datetime import datetime
 #imports de modelos
-from models.venta import Consumo
 from models.platillo import Platillo
+
+if TYPE_CHECKING:
+    from models.venta import Consumo
 
 class Venta:
     def __init__(self,
