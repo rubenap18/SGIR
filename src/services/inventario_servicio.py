@@ -38,7 +38,7 @@ class InventarioServicio:
         stock_actualizado = insumo.stock + cantidad
         self._insumo_dao.actualizar_stock(num_insumo,stock_actualizado) 
 
-    def _usar_insumo(self, num_insumo:int, cantidad:int):
+    def _usar_insumo(self, num_insumo:int, cantidad:float):
         ''' en este caso se descuenta la cantidad de stock al insumo especificado.
             En general, los insumos usan como unidades de medida standard el KG y L o g y ml.
         '''

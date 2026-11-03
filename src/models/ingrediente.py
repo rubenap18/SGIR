@@ -9,16 +9,12 @@ if TYPE_CHECKING:
 
 
 class Ingrediente:
-<<<<<<< HEAD
-    def __init__(self, num, nombre, insumo=None, receta=None):
-=======
     def __init__(self,
                 num:int,
                 nombre:str,
                 insumo: Insumo,
                 receta: Optional[Receta] = None
                 ):
->>>>>>> main
         self._num = num
         self._nombre = nombre
         #fk
@@ -52,11 +48,6 @@ class Ingrediente:
     @property
     def receta(self) -> Receta|None:
         return self._receta
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> main
     @receta.setter
     def receta(self, value):
         self._receta = value
