@@ -72,8 +72,13 @@ def main():
     from services.ventas_servicio import VentasServicio
 
     venta_servicio = VentasServicio(None,None)
-    print(venta_servicio.calcular_importe_consumo(num_platillo=1,menu=menu_navidad,cantidad_platillos=3))
 
+    importe1 = venta_servicio.calcular_importe_consumo(num_platillo=1,menu=menu_navidad,cantidad_platillos=3)
+
+    venta1 = Venta(1,None,3)
+    venta1.agregar_consumo(platillo_pizza,importe1,5)
+
+    print(venta_servicio.calcular_monto_total_venta(venta=venta1,menu=menu_navidad))
 
 if __name__ == "__main__":
     main()
