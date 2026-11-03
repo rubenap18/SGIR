@@ -40,7 +40,7 @@ class InventarioServicio:
 
     def _usar_insumo(self, num_insumo:int, cantidad:int):
         ''' en este caso se descuenta la cantidad de stock al insumo especificado.
-            En general, los insumos usan como unidades de medida standard el KG.
+            En general, los insumos usan como unidades de medida standard el KG y L o g y ml.
         '''
         # validando que la cantidad sea mayor a 0
         if cantidad <= 0:
