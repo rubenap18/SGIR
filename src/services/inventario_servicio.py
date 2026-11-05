@@ -44,17 +44,17 @@ class InventarioServicio:
         '''
         # validando que la cantidad sea mayor a 0
         if cantidad <= 0:
-            return 'Cantidad invalida. Debe ser mayor a 0.'
+            return 0
         
         insumo = self._insumo_dao.buscar_por_id(num_insumo)
         # validando que el insumo exista en la BD.
         if insumo == False:
-            return 'No existe dicho Insumo.'
+            return 0
 
         stock_actualizado = insumo.stock - cantidad
         #validando que halla stock disponible para descontar
         if stock_actualizado < 0:
-            return 'Stock insuficiente en el almacen.'
+            return 0
         self._insumo_dao.actualizar_stock(num_insumo,stock_actualizado) 
 
     def preparar_receta(self, numero_receta:int):

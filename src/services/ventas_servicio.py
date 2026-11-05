@@ -36,3 +36,5 @@ class VentasServicio:
 
         # el importe es igual a el precio del platillo por la cantidad de ellos que se consumieron
         return precio_platillo * cantidad_platillos
+
+    
